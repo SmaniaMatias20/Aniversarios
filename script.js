@@ -64,7 +64,7 @@ function mostrarCumpleaños() {
 
         card.innerHTML = `
             <h3>${persona.nombre}</h3>
-            <p>🎂 Fecha: ${fechaFormateada}</p>
+            <p>🎂 Data: ${fechaFormateada}</p>
         `;
 
         container.appendChild(card);
