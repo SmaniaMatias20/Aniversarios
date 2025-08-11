@@ -5,7 +5,7 @@ const cumpleaños = [
     { nombre: "Candela", fecha: "06/09" },
     { nombre: "Martina", fecha: "10/05" },
     { nombre: "Mauricio", fecha: "03/10" },
-    { nombre: "Aline", fecha: "09/11" },
+    { nombre: "Aline", fecha: "09/08" },
     { nombre: "Ana Luisa", fecha: "06/01" },
     { nombre: "Davi", fecha: "12/12" },
     { nombre: "Marta", fecha: "16/09" },
