@@ -16,6 +16,11 @@ const cumpleañosOrdenados = cumpleaños.sort((a, b) => {
 let paginaActual = 1;
 const itemsPorPagina = 6;
 
+const meses = [
+    "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
+    "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"
+];
+
 function mostrarCumpleaños() {
     const container = document.getElementById("cardContainer");
     container.innerHTML = "";
@@ -32,13 +37,14 @@ function mostrarCumpleaños() {
 
     itemsPagina.forEach(persona => {
         const [mes, dia] = persona.fecha.split('/');
-        const fechaFormateada = `${dia.padStart(2, '0')}/${mes.padStart(2, '0')}`;
+        const nombreMes = meses[Number(mes) - 1];
+        const fechaFormateada = `${parseInt(dia)} de ${nombreMes}`;
 
         const card = document.createElement("div");
         card.classList.add("card");
 
-        // Comparar con la fecha de hoy
-        if (fechaFormateada === fechaHoy) {
+        // Comparar con la fecha de hoy (en formato DD/MM)
+        if (`${dia.padStart(2, '0')}/${mes.padStart(2, '0')}` === fechaHoy) {
             card.classList.add("hoy"); // clase para resaltar
         }
 
