@@ -21,9 +21,10 @@ const cumpleaños = [
 
 // Arreglo con nombres de meses en español
 const meses = [
-    "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
-    "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"
+    "Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho",
+    "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"
 ];
+
 
 // Ordenar cumpleaños por fecha (DD/MM)
 const cumpleañosOrdenados = cumpleaños.sort((a, b) => {
