@@ -15,11 +15,14 @@ const cumpleaños = [
     { nombre: "Eduardo", fecha: "30/07" },
     { nombre: "Carle", fecha: "06/12" },
     { nombre: "Jade", fecha: "26/11" },
-    { nombre: "Lucca", fecha: "20/08" }
+    { nombre: "Lucca", fecha: "20/08" },
+    { nombre: "Rafael", fecha: "22/05" },
+    { nombre: "Rafinha", fecha: "03/08" },
+    { nombre: "Nani", fecha: "19/08" },
+    { nombre: "Julinho", fecha: "04/03" },
 ];
 
 
-// Arreglo con nombres de meses en español
 const meses = [
     "Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho",
     "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"
