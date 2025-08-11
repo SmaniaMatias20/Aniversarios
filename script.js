@@ -1,25 +1,39 @@
 const cumpleaños = [
-    { nombre: "Matias", fecha: "01/26" },
-    { nombre: "Sebastian", fecha: "11/01" },
-    { nombre: "Paula", fecha: "04/18" },
-    { nombre: "Candela", fecha: "09/06" },
-    { nombre: "Martina", fecha: "05/10" },
+    { nombre: "Matias", fecha: "26/01" },
+    { nombre: "Sebastian", fecha: "01/11" },
+    { nombre: "Paula", fecha: "18/04" },
+    { nombre: "Candela", fecha: "06/09" },
+    { nombre: "Martina", fecha: "10/05" },
+    { nombre: "Mauricio", fecha: "03/10" },
+    { nombre: "Aline", fecha: "09/11" },
+    { nombre: "Ana Luisa", fecha: "06/01" },
+    { nombre: "Davi", fecha: "12/12" },
+    { nombre: "Marta", fecha: "16/09" },
+    { nombre: "Greg", fecha: "02/03" },
+    { nombre: "Céia", fecha: "30/12" },
+    { nombre: "Joba", fecha: "29/01" },
+    { nombre: "Eduardo", fecha: "30/07" },
+    { nombre: "Carle", fecha: "06/12" },
+    { nombre: "Jade", fecha: "26/11" },
+    { nombre: "Lucca", fecha: "20/08" }
 ];
 
-// Ordenar cumpleaños por fecha (MM/DD)
+
+// Arreglo con nombres de meses en español
+const meses = [
+    "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
+    "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"
+];
+
+// Ordenar cumpleaños por fecha (DD/MM)
 const cumpleañosOrdenados = cumpleaños.sort((a, b) => {
-    const [mesA, diaA] = a.fecha.split('/').map(Number);
-    const [mesB, diaB] = b.fecha.split('/').map(Number);
+    const [diaA, mesA] = a.fecha.split('/').map(Number);
+    const [diaB, mesB] = b.fecha.split('/').map(Number);
     return mesA === mesB ? diaA - diaB : mesA - mesB;
 });
 
 let paginaActual = 1;
 const itemsPorPagina = 6;
-
-const meses = [
-    "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
-    "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"
-];
 
 function mostrarCumpleaños() {
     const container = document.getElementById("cardContainer");
@@ -29,23 +43,23 @@ function mostrarCumpleaños() {
     const fin = inicio + itemsPorPagina;
     const itemsPagina = cumpleañosOrdenados.slice(inicio, fin);
 
-    // Obtener fecha actual (DD/MM)
+    // Obtener fecha actual en formato DD/MM
     const hoy = new Date();
     const diaHoy = String(hoy.getDate()).padStart(2, '0');
     const mesHoy = String(hoy.getMonth() + 1).padStart(2, '0');
     const fechaHoy = `${diaHoy}/${mesHoy}`;
 
     itemsPagina.forEach(persona => {
-        const [mes, dia] = persona.fecha.split('/');
+        const [dia, mes] = persona.fecha.split('/'); // aquí dia primero porque es DD/MM
         const nombreMes = meses[Number(mes) - 1];
         const fechaFormateada = `${parseInt(dia)} de ${nombreMes}`;
 
         const card = document.createElement("div");
         card.classList.add("card");
 
-        // Comparar con la fecha de hoy (en formato DD/MM)
+        // Resaltar si es cumpleaños hoy
         if (`${dia.padStart(2, '0')}/${mes.padStart(2, '0')}` === fechaHoy) {
-            card.classList.add("hoy"); // clase para resaltar
+            card.classList.add("hoy");
         }
 
         card.innerHTML = `
@@ -60,11 +74,10 @@ function mostrarCumpleaños() {
     const totalPaginas = Math.ceil(cumpleañosOrdenados.length / itemsPorPagina);
     document.getElementById("pageInfo").textContent = `Página ${paginaActual} de ${totalPaginas}`;
 
-    // Desactivar botones cuando sea necesario
+    // Desactivar botones si es necesario
     document.getElementById("prevPage").disabled = paginaActual === 1;
     document.getElementById("nextPage").disabled = paginaActual === totalPaginas;
 }
-
 
 // Eventos de paginación
 document.getElementById("prevPage").addEventListener("click", () => {
@@ -82,6 +95,5 @@ document.getElementById("nextPage").addEventListener("click", () => {
     }
 });
 
-// Mostrar la primera página
+// Mostrar la primera página al cargar
 mostrarCumpleaños();
-
