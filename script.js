@@ -20,6 +20,7 @@ const cumpleaños = [
     { nombre: "Rafinha", fecha: "03/08" },
     { nombre: "Nani", fecha: "19/08" },
     { nombre: "Julinho", fecha: "04/03" },
+    { nombre: "Stéfano", fecha: "29/03" },
 ];
 
 
